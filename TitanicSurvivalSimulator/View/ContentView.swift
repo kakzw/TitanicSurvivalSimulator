@@ -25,8 +25,7 @@ struct ContentView: View {
   @State private var boat = ""
   @State private var bodyNum = ""
   @State private var res: Float = 0.0
-  @State private var simulated = false
-  @State private var changesMade = true
+  @State private var changesMade = false
   @State private var showMaze = false
   
   var body: some View {
@@ -47,41 +46,64 @@ struct ContentView: View {
                           cabin: $cabin,
                           port: $port,
                           boat: $boat,
-                          bodyNum: $bodyNum,
-                          simulated: $simulated,
-                          changesMade: $changesMade)
+                          bodyNum: $bodyNum)
+            // if any changes are made to attributes
+            // that affect survival chance, repredict
+            .onChange(of: passengerClass) { _, _ in
+              predict(person: .passenger)
+              changesMade = true
+            }
+            .onChange(of: sex) { _, _ in
+              predict(person: .passenger)
+              changesMade = true
+            }
+            .onChange(of: age) { _, _ in
+              predict(person: .passenger)
+              changesMade = true
+            }
+            .onChange(of: numOfSiblings) { _, _ in
+              predict(person: .passenger)
+              changesMade = true
+            }
+            .onChange(of: numOfParents) { _, _ in
+              predict(person: .passenger)
+              changesMade = true
+            }
+            .onChange(of: fare) { _, _ in
+              predict(person: .passenger)
+              changesMade = true
+            }
+            .onChange(of: port) { _, _ in
+              predict(person: .passenger)
+              changesMade = true
+            }
             .frame(maxHeight: .infinity)
+            
             NoteView()
           case .crew:
             CrewView(name: $name,
-                     sex: $sex,
-                     simulated: $simulated,
-                     changesMade: $changesMade)
+                     sex: $sex)
+            .onChange(of: sex) { _, _ in
+              predict(person: .crew)
+              changesMade = true
+            }
             .frame(maxHeight: .infinity)
         }
         
         // survival chance text
         Text("Survival Chance: \(String(format: "%.2f%%", res*100))")
-          .opacity(simulated ? 1 : 0)
           .bold()
-          .opacity(0.8)
+          .opacity(changesMade ? 0.8 : 0)
+          .onChange(of: person) { _, newVal in
+            predict(person: newVal)
+          }
         
+        // button to simulate
         Button {
           if name.isEmpty { return }
-          if changesMade {
-            switch person {
-              case .passenger:
-                res = passengerModel.predict(passengerClass: passengerClass, sex: sex, age: age, numOfSiblings: numOfSiblings, numOfParents: numOfParents, fare: fare, embarked: port)
-              case .crew:
-                res = crewModel.predict(sex: sex)
-            }
-            changesMade = false
-            simulated = true
-          } else {
-            showMaze = true
-          }
+          showMaze = true
         } label: {
-          Text(changesMade ? "Predict" : "Simulate")
+          Text("Simulate")
             .opacity(name.isEmpty ? 0.4 : 1)
             .bold()
             .frame(width: 200, height: 50)
@@ -89,7 +111,6 @@ struct ContentView: View {
             .background(Color.orange)
             .clipShape(RoundedRectangle(cornerRadius: 12))
         }
-        .padding()
       }
       .navigationDestination(isPresented: $showMaze) {
         MazeView(res: res*100, name: name, sex: sex)
@@ -102,6 +123,15 @@ struct ContentView: View {
       .toolbarBackground(.visible, for: .navigationBar)
       // make foreground color of title to white
       .toolbarColorScheme(.dark, for: .navigationBar)
+    }
+  }
+  
+  private func predict(person: Person) {
+    switch person {
+      case .passenger:
+        res = passengerModel.predict(passengerClass: passengerClass, sex: sex, age: age, numOfSiblings: numOfSiblings, numOfParents: numOfParents, fare: fare, embarked: port)
+      case .crew:
+        res = crewModel.predict(sex: sex)
     }
   }
 }
@@ -120,58 +150,28 @@ struct PassengerView: View {
   @Binding var port: Port
   @Binding var boat: String
   @Binding var bodyNum: String
-  @Binding var simulated: Bool
-  @Binding var changesMade: Bool
   
   var body: some View {
     List {
       PassengerClassView(passengerClass: $passengerClass)
-        .onChange(of: passengerClass) { _, _ in
-          simulated = false
-          changesMade = true
-        }
       
       TextFieldView(title: "Name", text: $name)
       
       SexView(sex: $sex)
-        .onChange(of: sex) { _, _ in
-          simulated = false
-          changesMade = true
-        }
       
       NumPickerView(title: "Age*", num: $age, min: 0, max: 100)
-        .onChange(of: age) { _, _ in
-          simulated = false
-          changesMade = true
-        }
       
       NumPickerView(title: "Number of Siblings/Spouses*", num: $numOfSiblings, min: 0, max: 10)
-        .onChange(of: numOfSiblings) { _, _ in
-          simulated = false
-          changesMade = true
-        }
       
       NumPickerView(title: "Number of Parents/Children*", num: $numOfParents, min: 0, max: 10)
-        .onChange(of: numOfParents) { _, _ in
-          simulated = false
-          changesMade = true
-        }
       
       TicketNumView(ticketNum: $ticketNum)
       
       FareView(fare: $fare)
-        .onChange(of: fare) { _, _ in
-          simulated = false
-          changesMade = true
-        }
       
       TextFieldView(title: "Cabin", text: $cabin)
       
       PortView(port: $port)
-        .onChange(of: port) { _, _ in
-          simulated = false
-          changesMade = true
-        }
       
       TextFieldView(title: "Boat", text: $boat)
       
@@ -184,18 +184,12 @@ struct PassengerView: View {
 struct CrewView: View {
   @Binding var name: String
   @Binding var sex: Sex
-  @Binding var simulated: Bool
-  @Binding var changesMade: Bool
   
   var body: some View {
     List {
       TextFieldView(title: "Name", text: $name)
       
       SexView(sex: $sex)
-        .onChange(of: sex) { _, _ in
-          simulated = false
-          changesMade = true
-        }
     }
   }
 }
