@@ -100,17 +100,17 @@ struct ContentView: View {
         
         // button to simulate
         Button {
-          if name.isEmpty { return }
+          if name.isEmpty || !changesMade { return }
           showMaze = true
         } label: {
           Text("Simulate")
-            .opacity(name.isEmpty ? 0.4 : 1)
             .bold()
             .frame(width: 200, height: 50)
             .foregroundStyle(Color.white)
-            .background(Color.orange)
+            .background(.btn)
             .clipShape(RoundedRectangle(cornerRadius: 12))
         }
+        .opacity((name.isEmpty || !changesMade) ? 0.4 : 1)
       }
       .navigationDestination(isPresented: $showMaze) {
         MazeView(res: res*100, name: name, sex: sex)
@@ -119,7 +119,7 @@ struct ContentView: View {
       .navigationTitle("Persona")
       .navigationBarTitleDisplayMode(.inline)
       .navigationBarBackButtonHidden()
-      .toolbarBackground(.orange, for: .navigationBar)
+      .toolbarBackground(.theme, for: .navigationBar)
       .toolbarBackground(.visible, for: .navigationBar)
       // make foreground color of title to white
       .toolbarColorScheme(.dark, for: .navigationBar)

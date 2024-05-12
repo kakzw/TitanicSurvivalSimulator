@@ -37,7 +37,7 @@ struct FinalView: View {
       } label: {
         Text("Simulate Again")
           .frame(width: 280, height: 50)
-          .background(Color.orange)
+          .background(.btn)
           .foregroundStyle(Color.white)
           .bold()
           .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -50,7 +50,7 @@ struct FinalView: View {
     .navigationTitle("Result")
     .navigationBarTitleDisplayMode(.inline)
     .navigationBarBackButtonHidden()
-    .toolbarBackground(.orange, for: .navigationBar)
+    .toolbarBackground(.theme, for: .navigationBar)
     .toolbarBackground(.visible, for: .navigationBar)
     // make foreground color of title to white
     .toolbarColorScheme(.dark, for: .navigationBar)

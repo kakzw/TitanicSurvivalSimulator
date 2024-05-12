@@ -21,7 +21,7 @@ struct MazeView: View {
   private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   private let gridRows = 7
   private let gridCols = 5
-  private let buttonLength: CGFloat = 60
+  private let buttonLength: CGFloat = 70
   @State private var showResult = false
   
   // variables that are initialized in initialization of the object
@@ -69,12 +69,13 @@ struct MazeView: View {
     ZStack {
       // maze
       VStack(spacing: 0) {
-        Spacer(minLength: 120)
+        Spacer()
+          .frame(height: 110)
         // iterate through rows
         ForEach(0..<gridRows, id: \.self) { rowOffset in
           self.rowView(for: rowOffset)
         }
-        Spacer(minLength: 150)
+        Spacer(minLength: 160)
       }
       .onAppear {
         timeRemaining = totalTime
@@ -105,7 +106,7 @@ struct MazeView: View {
     }
     .navigationTitle("Maze")
     .navigationBarTitleDisplayMode(.inline)
-    .toolbarBackground(.orange, for: .navigationBar)
+    .toolbarBackground(.theme, for: .navigationBar)
     .toolbarBackground(.visible, for: .navigationBar)
     // make foreground color of title to white
     .toolbarColorScheme(.dark, for: .navigationBar)
@@ -281,12 +282,12 @@ struct MovementButtonView: View {
       Button(action: moveUp, label: {
         Rectangle()
           .frame(width: buttonLength, height: buttonLength)
-          .foregroundStyle(Color(uiColor: .orange).opacity(canMoveUp() ? 1 : 0.4))
+          .foregroundStyle(.btn.opacity(canMoveUp() ? 1 : 0.4))
           .overlay {
             Image(systemName: "arrowshape.up.fill")
               .resizable()
               .frame(width: 30, height: 30)
-              .foregroundStyle(Color.white)
+              .foregroundStyle(.white)
           }
           .clipShape(RoundedRectangle(cornerRadius: 4))
       })
@@ -296,12 +297,12 @@ struct MovementButtonView: View {
         Button(action: moveLeft, label: {
           Rectangle()
             .frame(width: buttonLength, height: buttonLength)
-            .foregroundStyle(Color(uiColor: .orange).opacity(canMoveLeft() ? 1 : 0.4))
+            .foregroundStyle(.btn.opacity(canMoveLeft() ? 1 : 0.4))
             .overlay {
               Image(systemName: "arrowshape.left.fill")
                 .resizable()
                 .frame(width: 30, height: 30)
-                .foregroundStyle(Color.white)
+                .foregroundStyle(.white)
             }
             .clipShape(RoundedRectangle(cornerRadius: 4))
         })
@@ -309,12 +310,12 @@ struct MovementButtonView: View {
         Button(action: moveDown, label: {
           Rectangle()
             .frame(width: buttonLength, height: buttonLength)
-            .foregroundStyle(Color(uiColor: .orange).opacity(canMoveDown() ? 1 : 0.4))
+            .foregroundStyle(.btn.opacity(canMoveDown() ? 1 : 0.4))
             .overlay {
               Image(systemName: "arrowshape.down.fill")
                 .resizable()
                 .frame(width: 30, height: 30)
-                .foregroundStyle(Color.white)
+                .foregroundStyle(.white)
             }
             .clipShape(RoundedRectangle(cornerRadius: 4))
         })
@@ -322,12 +323,12 @@ struct MovementButtonView: View {
         Button(action: moveRight, label: {
           Rectangle()
             .frame(width: buttonLength, height: buttonLength)
-            .foregroundStyle(Color(uiColor: .orange).opacity(canMoveRight() ? 1 : 0.4))
+            .foregroundStyle(.btn.opacity(canMoveRight() ? 1 : 0.4))
             .overlay {
               Image(systemName: "arrowshape.right.fill")
                 .resizable()
                 .frame(width: 30, height: 30)
-                .foregroundStyle(Color.white)
+                .foregroundStyle(.white)
             }
             .clipShape(RoundedRectangle(cornerRadius: 4))
         })
