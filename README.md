@@ -1,18 +1,26 @@
 # Titanic Survival Simulation App
 
-This app simulates the survival chances of a passenger aboard the Titanic based on various input parameters. 
-It uses artificial neural network (ANN) to predict survival likelihood, and the ANN model is deployed within the app to simulate.
-The app also includes a maze game to represent the survival journey.
+This project is a SwiftUI-based simulation app that predicts the survival chance of passengers and crew members aboard the Titanic. 
+The app uses machine learning models to simulate survival probabilities based on various input attributes. 
+It includes a maze mini-game to visualize the simulation results interactively.
 
 ## Features
 - **Input Details**
   - Select passenger class, sex, age, number of siblings/spouses, number of parents/children, fare, embarked port, etc.
+  - The app predicts survival chances based on these inputs using a pre-trained machine learning model (`ann_model.tflite` file).
+  - Changes to attributes automatically trigger a prediction update.
 - **Simulation**
   - Predicts survival chance based on the input details using a pre-trained model.
   - Displays the predicted survival percentage.
 - **Maze Game**
-  - Opens a maze game to simulate the passenger's journey.
-  - The maze game outcome depends on the predicted survival rate.
+  - Upon initiating a simulation, users are presented with a maze challenge.
+  - The complexity of the maze varies based on predicted survival chance:
+      - Survival chance ≥50% leads to an easy maze.
+      - Survival chance <50% leads to a medium maze.
+      - Users must navigate the maze within a specified time to determine their fate.
+- **Result Display**
+  - After completing the maze or time running out, users receive a result.
+  - The result includes survival status and image of full maze.
  
 ## Files
 - `titanic.csv`: The dataset used to train the model. The original dataset can be found <a href="https://datasetsearch.research.google.com/search?source=post_page-----bb6d0dc3378b--------------------------------&src=2&query=Titanic%20Disaster%20Dataset&docid=L2cvMTFqbnp3dF9mXw%3D%3D">here</a>.
@@ -37,13 +45,12 @@ The app also includes a maze game to represent the survival journey.
 4. Build and run the app on your iOS device or simulator.
 
 ## App Usage
-1. **Input Passenger Details**
+1. **Create Persona**
    - Provide necessary passenger details such as passenger class, name, age, sex, fare, embarked port etc.
-2. **Simulation**
-   - Tap the "Predict" button to predict the survival chance based on the provided details.
-   - If changes are made after prediction, press "Predict" again to update the prediction.
+2. **Prediction**
+   - When any changes are made to the persona, it updates the survival chance automatically.
 3. **Maze Game**
-   - After the prediction, press "Simulate" button to enter the maze game.
+   - After the prediction, tap "Simulate" button to enter the maze game.
    - Navigate the maze using the provided controls (arrows) to reach the destination.
 4. **Result**
    - Upon completion of the maze, view the result screen to see if the passenger survived.
