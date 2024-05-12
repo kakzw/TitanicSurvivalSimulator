@@ -20,7 +20,19 @@
 		CF2649DD2BF087C000853E46 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2649DC2BF087C000853E46 /* Enum.swift */; };
 		CF2649DF2BF0880A00853E46 /* MazeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2649DE2BF0880A00853E46 /* MazeView.swift */; };
 		CF2649E12BF0881300853E46 /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2649E02BF0881300853E46 /* FinalView.swift */; };
+		CF9FD62E2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FD62D2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.swift */; };
+		CF9FD6382BF0977700486DD1 /* MazeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FD6342BF096FC00486DD1 /* MazeTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CF9FD62F2BF0960900486DD1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF2649B72BF0868200853E46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF2649BE2BF0868200853E46;
+			remoteInfo = TitanicSurvivalSimulator;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0B8C09B66409EC9397ABCD44 /* Pods-TitanicSurvivalSimulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TitanicSurvivalSimulator.release.xcconfig"; path = "Target Support Files/Pods-TitanicSurvivalSimulator/Pods-TitanicSurvivalSimulator.release.xcconfig"; sourceTree = "<group>"; };
@@ -38,6 +50,9 @@
 		CF2649DC2BF087C000853E46 /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		CF2649DE2BF0880A00853E46 /* MazeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeView.swift; sourceTree = "<group>"; };
 		CF2649E02BF0881300853E46 /* FinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalView.swift; sourceTree = "<group>"; };
+		CF9FD62B2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TitanicSurvivalSimulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF9FD62D2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanicSurvivalSimulatorTests.swift; sourceTree = "<group>"; };
+		CF9FD6342BF096FC00486DD1 /* MazeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeTests.swift; sourceTree = "<group>"; };
 		D26B28D4EEF4A3D3BA747443 /* Pods-TitanicSurvivalSimulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TitanicSurvivalSimulator.debug.xcconfig"; path = "Target Support Files/Pods-TitanicSurvivalSimulator/Pods-TitanicSurvivalSimulator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +62,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3A8680E3F633CB2EC012DA5 /* Pods_TitanicSurvivalSimulator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF9FD6282BF0960900486DD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +97,7 @@
 			children = (
 				CF2649D02BF0877400853E46 /* ann_model.tflite */,
 				CF2649C12BF0868200853E46 /* TitanicSurvivalSimulator */,
+				CF9FD62C2BF0960900486DD1 /* TitanicSurvivalSimulatorTests */,
 				CF2649C02BF0868200853E46 /* Products */,
 				69C67E29253976E22EB23015 /* Pods */,
 				79BCE091B23CABC5B20C69ED /* Frameworks */,
@@ -85,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				CF2649BF2BF0868200853E46 /* TitanicSurvivalSimulator.app */,
+				CF9FD62B2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,6 +155,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CF9FD62C2BF0960900486DD1 /* TitanicSurvivalSimulatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				CF9FD62D2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.swift */,
+				CF9FD6342BF096FC00486DD1 /* MazeTests.swift */,
+			);
+			path = TitanicSurvivalSimulatorTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +185,24 @@
 			productReference = CF2649BF2BF0868200853E46 /* TitanicSurvivalSimulator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CF9FD62A2BF0960900486DD1 /* TitanicSurvivalSimulatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF9FD6312BF0960900486DD1 /* Build configuration list for PBXNativeTarget "TitanicSurvivalSimulatorTests" */;
+			buildPhases = (
+				CF9FD6272BF0960900486DD1 /* Sources */,
+				CF9FD6282BF0960900486DD1 /* Frameworks */,
+				CF9FD6292BF0960900486DD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF9FD6302BF0960900486DD1 /* PBXTargetDependency */,
+			);
+			name = TitanicSurvivalSimulatorTests;
+			productName = TitanicSurvivalSimulatorTests;
+			productReference = CF9FD62B2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -164,6 +215,10 @@
 				TargetAttributes = {
 					CF2649BE2BF0868200853E46 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					CF9FD62A2BF0960900486DD1 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = CF2649BE2BF0868200853E46;
 					};
 				};
 			};
@@ -181,6 +236,7 @@
 			projectRoot = "";
 			targets = (
 				CF2649BE2BF0868200853E46 /* TitanicSurvivalSimulator */,
+				CF9FD62A2BF0960900486DD1 /* TitanicSurvivalSimulatorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -193,6 +249,13 @@
 				CF2649CA2BF0868300853E46 /* Preview Assets.xcassets in Resources */,
 				CF2649D12BF0877400853E46 /* ann_model.tflite in Resources */,
 				CF2649C72BF0868300853E46 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF9FD6292BF0960900486DD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +303,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CF9FD6272BF0960900486DD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF9FD6382BF0977700486DD1 /* MazeTests.swift in Sources */,
+				CF9FD62E2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF9FD6302BF0960900486DD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF2649BE2BF0868200853E46 /* TitanicSurvivalSimulator */;
+			targetProxy = CF9FD62F2BF0960900486DD1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CF2649CB2BF0868300853E46 /* Debug */ = {
@@ -371,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TitanicSurvivalSimulator/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -383,7 +464,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AI.TitanicSurvivalSimulator;
+				PRODUCT_BUNDLE_IDENTIFIER = TitanicSurvivalSimulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -400,6 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TitanicSurvivalSimulator/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -412,11 +494,47 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = AI.TitanicSurvivalSimulator;
+				PRODUCT_BUNDLE_IDENTIFIER = TitanicSurvivalSimulator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CF9FD6322BF0960900486DD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 373ZLR7H4M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AI.TitanicSurvivalSimulatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TitanicSurvivalSimulator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TitanicSurvivalSimulator";
+			};
+			name = Debug;
+		};
+		CF9FD6332BF0960900486DD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 373ZLR7H4M;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = AI.TitanicSurvivalSimulatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TitanicSurvivalSimulator.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TitanicSurvivalSimulator";
 			};
 			name = Release;
 		};
@@ -437,6 +555,15 @@
 			buildConfigurations = (
 				CF2649CE2BF0868300853E46 /* Debug */,
 				CF2649CF2BF0868300853E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF9FD6312BF0960900486DD1 /* Build configuration list for PBXNativeTarget "TitanicSurvivalSimulatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF9FD6322BF0960900486DD1 /* Debug */,
+				CF9FD6332BF0960900486DD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
