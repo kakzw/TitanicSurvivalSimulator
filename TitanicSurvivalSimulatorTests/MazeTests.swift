@@ -49,35 +49,33 @@ final class MazeTests: XCTestCase {
     let cols = maze[0].count
     for row in 1..<rows-1 {
       for col in 1..<cols-1 {
-        if (row != 0 && row != rows-1 && col != 0 && col != cols-1) {
-          let cell = maze[row][col]
-          
-          // if @cell has a top border
-          // a cell above must have bottom border
-          // otherwise, a cell above should not have bottom border
-          if cell.hasBorder(.top) {
-            XCTAssertTrue(maze[row-1][col].hasBorder(.bottom), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
-          } else {
-            XCTAssertFalse(maze[row-1][col].hasBorder(.bottom), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
-          }
-          
-          if cell.hasBorder(.bottom) {
-            XCTAssertTrue(maze[row+1][col].hasBorder(.top), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
-          } else {
-            XCTAssertFalse(maze[row+1][col].hasBorder(.top), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
-          }
-          
-          if cell.hasBorder(.left) {
-            XCTAssertTrue(maze[row][col-1].hasBorder(.right), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
-          } else {
-            XCTAssertFalse(maze[row][col-1].hasBorder(.right), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
-          }
-          
-          if cell.hasBorder(.right) {
-            XCTAssertTrue(maze[row][col+1].hasBorder(.left), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
-          } else {
-            XCTAssertFalse(maze[row][col+1].hasBorder(.left), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
-          }
+        let cell = maze[row][col]
+        
+        // if @cell has a top border
+        // a cell above must have bottom border
+        // otherwise, a cell above should not have bottom border
+        if cell.hasBorder(.top) {
+          XCTAssertTrue(maze[row-1][col].hasBorder(.bottom), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
+        } else {
+          XCTAssertFalse(maze[row-1][col].hasBorder(.bottom), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
+        }
+        
+        if cell.hasBorder(.bottom) {
+          XCTAssertTrue(maze[row+1][col].hasBorder(.top), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
+        } else {
+          XCTAssertFalse(maze[row+1][col].hasBorder(.top), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
+        }
+        
+        if cell.hasBorder(.left) {
+          XCTAssertTrue(maze[row][col-1].hasBorder(.right), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
+        } else {
+          XCTAssertFalse(maze[row][col-1].hasBorder(.right), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
+        }
+        
+        if cell.hasBorder(.right) {
+          XCTAssertTrue(maze[row][col+1].hasBorder(.left), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
+        } else {
+          XCTAssertFalse(maze[row][col+1].hasBorder(.left), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
         }
       }
     }
