@@ -60,18 +60,24 @@ final class MazeTests: XCTestCase {
           XCTAssertFalse(maze[row-1][col].hasBorder(.bottom), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
         }
         
+        // if @cell has a bottom border
+        // a cell below must have top border
         if cell.hasBorder(.bottom) {
           XCTAssertTrue(maze[row+1][col].hasBorder(.top), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
         } else {
           XCTAssertFalse(maze[row+1][col].hasBorder(.top), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
         }
         
+        // if @cell has a left border
+        // a cell to the left must have right border
         if cell.hasBorder(.left) {
           XCTAssertTrue(maze[row][col-1].hasBorder(.right), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
         } else {
           XCTAssertFalse(maze[row][col-1].hasBorder(.right), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
         }
         
+        // if @cell has a right border
+        // a cell to the right must have left border
         if cell.hasBorder(.right) {
           XCTAssertTrue(maze[row][col+1].hasBorder(.left), "\(difficulty) maze \(mazeNum), row: \(row), column: \(col)")
         } else {
