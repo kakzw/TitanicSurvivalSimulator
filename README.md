@@ -152,7 +152,7 @@ To use the model in your app:
      # Comment the next line if you don't want to use dynamic frameworks
      use_frameworks!
 
-     # Pods for TitanicSurvivalSimulator
+     # Pods for your_project_name
      pod 'TensorFlowLiteSwift'
    end
 
