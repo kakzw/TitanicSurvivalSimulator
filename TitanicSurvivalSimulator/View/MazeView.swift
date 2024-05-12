@@ -45,12 +45,12 @@ struct MazeView: View {
     switch res {
       case 50...100:
         maze = model.getMaze(difficulty: .easy)
-        totalTime = Int((res/2) + 10)
+        totalTime = Int((res/2) - 5)
         rows = maze.maze.count
         cols = maze.maze[0].count
       default:
         maze = model.getMaze(difficulty: .medium)
-        totalTime = Int((res/2) + 30)
+        totalTime = Int((res/2) + 15)
         rows = maze.maze.count
         cols = maze.maze[0].count
     }
