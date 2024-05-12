@@ -22,6 +22,7 @@
 		CF2649E12BF0881300853E46 /* FinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2649E02BF0881300853E46 /* FinalView.swift */; };
 		CF9FD62E2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FD62D2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.swift */; };
 		CF9FD6382BF0977700486DD1 /* MazeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FD6342BF096FC00486DD1 /* MazeTests.swift */; };
+		CF9FD6782BF0A94800486DD1 /* PassengerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9FD6772BF0A94800486DD1 /* PassengerModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		CF9FD62B2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TitanicSurvivalSimulatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9FD62D2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitanicSurvivalSimulatorTests.swift; sourceTree = "<group>"; };
 		CF9FD6342BF096FC00486DD1 /* MazeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MazeTests.swift; sourceTree = "<group>"; };
+		CF9FD6772BF0A94800486DD1 /* PassengerModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerModelTests.swift; sourceTree = "<group>"; };
 		D26B28D4EEF4A3D3BA747443 /* Pods-TitanicSurvivalSimulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TitanicSurvivalSimulator.debug.xcconfig"; path = "Target Support Files/Pods-TitanicSurvivalSimulator/Pods-TitanicSurvivalSimulator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				CF9FD62D2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.swift */,
+				CF9FD6772BF0A94800486DD1 /* PassengerModelTests.swift */,
 				CF9FD6342BF096FC00486DD1 /* MazeTests.swift */,
 			);
 			path = TitanicSurvivalSimulatorTests;
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9FD6382BF0977700486DD1 /* MazeTests.swift in Sources */,
+				CF9FD6782BF0A94800486DD1 /* PassengerModelTests.swift in Sources */,
 				CF9FD62E2BF0960900486DD1 /* TitanicSurvivalSimulatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

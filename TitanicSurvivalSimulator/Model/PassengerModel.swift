@@ -26,19 +26,6 @@ class PassengerModel {
   
   // MARK: - Public Functions
   
-  // convert all attributes to float and normalize
-  func preprocessInput(passengerClass: PassengerClass, sex: Sex, age: Int, numOfSiblings: Int, numOfParents: Int, fare: String, embarked: Port) -> [Float32] {
-    let passengerClassVal = norm.normalize(Float(passengerClass.rawValue), meanStdDev: norm.passengerClass)
-    let sexVal = norm.normalize(sex.val, meanStdDev: norm.sex)
-    let ageVal = norm.normalize(Float(age), meanStdDev: norm.age)
-    let numOfSiblingsVal = norm.normalize(Float(numOfSiblings), meanStdDev: norm.numOfSiblings)
-    let numOfParentsVal = norm.normalize(Float(numOfParents), meanStdDev: norm.numOfParents)
-    let fareVal = norm.normalize(Float(fare) ?? 0.0, meanStdDev: norm.fare)
-    let embarkedVal = norm.normalizePort(embarked)
-    let inputData = embarkedVal + [passengerClassVal, sexVal, ageVal, numOfSiblingsVal, numOfParentsVal, fareVal]
-    return inputData.map { Float32($0) }
-  }
-  
   // returns the survival chance based on provided details
   func predict(passengerClass: PassengerClass, sex: Sex, age: Int, numOfSiblings: Int, numOfParents: Int, fare: String, embarked: Port) -> Float {
     let input = preprocessInput(passengerClass: passengerClass, sex: sex, age: age, numOfSiblings: numOfSiblings, numOfParents: numOfParents, fare: fare, embarked: embarked)
@@ -73,6 +60,21 @@ class PassengerModel {
     
     // assuming the output tensor has a single value (binary classification)
     return outputData.first ?? 0.0
+  }
+  
+  // MARK: - Private Functions
+  
+  // convert all attributes to float and normalize
+  private func preprocessInput(passengerClass: PassengerClass, sex: Sex, age: Int, numOfSiblings: Int, numOfParents: Int, fare: String, embarked: Port) -> [Float32] {
+    let passengerClassVal = norm.normalize(Float(passengerClass.rawValue), meanStdDev: norm.passengerClass)
+    let sexVal = norm.normalize(sex.val, meanStdDev: norm.sex)
+    let ageVal = norm.normalize(Float(age), meanStdDev: norm.age)
+    let numOfSiblingsVal = norm.normalize(Float(numOfSiblings), meanStdDev: norm.numOfSiblings)
+    let numOfParentsVal = norm.normalize(Float(numOfParents), meanStdDev: norm.numOfParents)
+    let fareVal = norm.normalize(Float(fare) ?? 0.0, meanStdDev: norm.fare)
+    let embarkedVal = norm.normalizePort(embarked)
+    let inputData = embarkedVal + [passengerClassVal, sexVal, ageVal, numOfSiblingsVal, numOfParentsVal, fareVal]
+    return inputData.map { Float32($0) }
   }
 }
 
