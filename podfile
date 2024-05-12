@@ -1,0 +1,8 @@
+target 'TitanicSurvivalSimulator' do
+  use_frameworks!
+
+  # Pods for TitanicSurvivalSimulator
+  pod 'TensorFlowLiteSwift'
+end
+
+platform :ios, '14.0'
