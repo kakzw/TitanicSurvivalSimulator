@@ -17,7 +17,7 @@ It includes a maze mini-game to visualize the simulation results interactively.
   - The complexity of the maze varies based on predicted survival chance:
       - Survival chance ≥50% leads to an easy maze.
       - Survival chance <50% leads to a medium maze.
-      - Users must navigate the maze within a specified time to determine their fate.
+  - Users must navigate the maze within a specified time to determine their fate.
 - **Result Display**
   - After completing the maze or time running out, users receive a result.
   - The result includes survival status and image of full maze.
