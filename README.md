@@ -18,6 +18,8 @@ It includes a maze mini-game to visualize the simulation results interactively.
       - Survival chance ≥50% leads to an easy maze.
       - Survival chance <50% leads to a medium maze.
   - Users must navigate the maze within a specified time to determine their fate.
+  - Timer is displayed on the top of the screen.
+  - Background gets darker as the time passes.
 - **Result Display**
   - After completing the maze or time running out, users receive a result.
   - The result includes survival status and image of full maze.
@@ -29,14 +31,16 @@ It includes a maze mini-game to visualize the simulation results interactively.
 - `TitanicSurvivalSimulator.xcworkspace`: Workspace that include `TensorFlowLiteSwift` library.
 
 ## Screenshots
-<img src="https://github.com/kakzw/PasswordManager/assets/167830553/4dff51a1-a1fc-4936-8099-a81a61259d1e" width="300">
-<img src="https://github.com/kakzw/PasswordManager/assets/167830553/26474b06-6280-4c02-bfbf-04aa9fc4f4d0" width="300">
-<img src="https://github.com/kakzw/PasswordManager/assets/167830553/24f7a53b-c983-49c6-9ccc-49582ad4cda5" width="300">
-<img src="https://github.com/kakzw/PasswordManager/assets/167830553/8eb70641-a5dd-42a4-9a7e-36b46d553d9c" width="300">
-<img src="https://github.com/kakzw/PasswordManager/assets/167830553/644841d8-ad6e-4ee7-95d8-0ca48d68e3c7" width="300">
-<img src="https://github.com/kakzw/PasswordManager/assets/167830553/c4817f51-ea6a-4088-810b-0da6248f68a7" width="300">
-<img src="https://github.com/kakzw/PasswordManager/assets/167830553/0de67a26-025e-4b29-a203-2a33a0a31fc0" width="300">
-<img src="https://github.com/kakzw/PasswordManager/assets/167830553/b5f25624-6c6c-4933-8263-e78912b16f44" width="300">
+<img src="https://github.com/kakzw/TitanicSurvivalSimulator/assets/167830553/2a06b26e-65a5-4855-87ff-d0a1e6dfb6d6" width="300">
+<img src="https://github.com/kakzw/TitanicSurvivalSimulator/assets/167830553/7b6f3391-c5f1-4b85-99d0-1342e6e70f52" width="300">
+<img src="https://github.com/kakzw/TitanicSurvivalSimulator/assets/167830553/7c9e7da4-3f44-4bc5-93ff-90bc06a73799" width="300">
+<img src="https://github.com/kakzw/TitanicSurvivalSimulator/assets/167830553/b9492cae-8cfe-4d10-b23f-2969295214c5" width="300">
+<img src="https://github.com/kakzw/TitanicSurvivalSimulator/assets/167830553/37081b95-f71d-47dd-90ff-379663ce46a2" width="300">
+<img src="https://github.com/kakzw/TitanicSurvivalSimulator/assets/167830553/5aadbf44-eaec-4bde-bee6-4d5bc70548da" width="300">
+<img src="https://github.com/kakzw/TitanicSurvivalSimulator/assets/167830553/0ee5ba81-478d-4719-87a6-2f31ce2b6b9b" width="300">
+<img src="https://github.com/kakzw/TitanicSurvivalSimulator/assets/167830553/f52e390a-b0bd-4058-a228-132e4672fdbd" width="300">
+<img src="https://github.com/kakzw/TitanicSurvivalSimulator/assets/167830553/3e991f26-171a-4722-a394-5f8a57af40b7" width="300">
+<img src="https://github.com/kakzw/TitanicSurvivalSimulator/assets/167830553/2071fd1f-de4c-424f-abf4-7fa1ce6dbc6d" width="300">
 
 ## Installation
 1. To run this app, make sure you have `XCode` installed.
@@ -107,7 +111,7 @@ ann.fit(X_train, y_train, batch_size=2, epochs=100)
 loss, accuracy = ann.evaluate(X_test, y_test)
 print(f'Test Accuracy: {accuracy}')
 ```
-The accuracy was 80.86%.
+The accuracy was 82.3%.
 
 ### Exporting to TensorFlow Lite
 The trained ANN model is converted to TensorFlow Lite (.tflite) format for mobile deployment:
