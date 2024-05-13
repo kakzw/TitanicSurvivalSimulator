@@ -96,6 +96,7 @@ struct ContentView: View {
           .bold()
           .opacity(changesMade ? 0.8 : 0)
           .onChange(of: person) { _, newVal in
+            changesMade = true
             predict(person: newVal)
           }
         
