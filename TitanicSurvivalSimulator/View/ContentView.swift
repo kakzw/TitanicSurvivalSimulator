@@ -26,6 +26,7 @@ struct ContentView: View {
   @State private var bodyNum = ""
   @State private var res: Float = 0.0
   @State private var changesMade = false
+  @State private var nameEmptyWarning = false
   @State private var showMaze = false
   
   var body: some View {
@@ -100,8 +101,12 @@ struct ContentView: View {
         
         // button to simulate
         Button {
-          if name.isEmpty || !changesMade { return }
-          showMaze = true
+          if !changesMade { return }
+          if name.isEmpty {
+            nameEmptyWarning = true
+          } else {
+            showMaze = true
+          }
         } label: {
           Text("Simulate")
             .bold()
@@ -114,6 +119,11 @@ struct ContentView: View {
       }
       .navigationDestination(isPresented: $showMaze) {
         MazeView(res: res*100, name: name, sex: sex)
+      }
+      .alert("Name is empty", isPresented: $nameEmptyWarning) {
+        Button("OK", role: .cancel) { }
+      } message: {
+        Text("Name cannot be empty")
       }
       .background(Color(uiColor: .systemGray6))
       .navigationTitle("Persona")
