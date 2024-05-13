@@ -123,9 +123,9 @@ print(f'Precision: {precision}')
 f1_score = f1_score(y_test, y_pred)
 print(f'F1 Score: {f1_score}')
 ```
-Accuracy: 81.8%.
-Precision: 80.0%
-F1 Score: 75.9%
+- Accuracy: 81.8%.
+- Precision: 80.0%
+- F1 Score: 75.9%
 
 ### Exporting to TensorFlow Lite
 The trained ANN model is converted to TensorFlow Lite (.tflite) format for mobile deployment:
