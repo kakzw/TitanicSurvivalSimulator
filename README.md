@@ -107,11 +107,25 @@ The model is trained and evaluated using a train-test split (80-20)
 # Training the ANN
 ann.fit(X_train, y_train, batch_size=2, epochs=100)
 
-# Evaluating the model on test data
-loss, accuracy = ann.evaluate(X_test, y_test)
-print(f'Test Accuracy: {accuracy}')
+# evaluate the model on test data
+y_pred = ann.predict(X_test)
+y_pred = (y_pred>0.5)
+
+# accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy}')
+
+# precision
+precision = precision_score(y_test, y_pred)
+print(f'Precision: {precision}')
+
+# F1 score
+f1_score = f1_score(y_test, y_pred)
+print(f'F1 Score: {f1_score}')
 ```
-The accuracy was 82.3%.
+Accuracy: 81.8%.
+Precision: 80.0%
+F1 Score: 75.9%
 
 ### Exporting to TensorFlow Lite
 The trained ANN model is converted to TensorFlow Lite (.tflite) format for mobile deployment:
